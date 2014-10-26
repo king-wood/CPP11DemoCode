@@ -10,10 +10,16 @@ public:
 	~A() { std::cout << "deconstruct" << std::endl; }
 };
 
+
+void fun(std::shared_ptr<A> p) 
+{
+	auto m = p;
+	return m;
+}
+
 int main()
 {
-	{
-		std::shared_ptr<A> p = std::make_shared<A>(10);
-	}
+	std::shared_ptr<A> p = std::make_shared<A>(10);
+	fun(p);
 	return 0;
 }
